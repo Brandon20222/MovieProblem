@@ -17,6 +17,9 @@ public:
 	string getFirstName();
 	string getLastName();
 	string getDateOfBirth();
+	void setFirstName(string f);
+	void setLastName(string l);
+	void setDateOfBirth(string b);
 	// Overload = Operand
 	Person& operator=(Person& right);
 };

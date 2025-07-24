@@ -5,9 +5,9 @@ using namespace std;
 
 // Constructors
 Person::Person() {
-	firstName = "Bob";
-	lastName = "Marley";
-	dob = "12/23/1989";
+	firstName = " ";
+	lastName = " ";
+	dob = " ";
 }
 Person::Person(string firstName, string lastName, string dateOfBirth) {
 	this->firstName = firstName;
@@ -23,6 +23,16 @@ string Person::getLastName() {
 }
 string Person::getDateOfBirth() {
 	return dob;
+}
+//setters 
+void Person::setFirstName(string f) {
+	firstName = f;
+}
+void Person::setLastName(string l) {
+	lastName = l;
+}
+void Person::setDateOfBirth(string b) {
+	dob = b;
 }
 // Overload = Operand
 Person& Person::operator=(Person& right) {

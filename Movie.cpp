@@ -17,11 +17,15 @@ Movie::Movie() {
 
 }
 Movie::Movie(string title, Person director, Person* cast, int numOfCast, int runTime) {
+	
 	this->title = title;
-	this->director = director;
+	this->director.getFirstName() = director.getFirstName();
+	this->director.getLastName() = director.getLastName();
+	this->director.getDateOfBirth() = director.getDateOfBirth();
 	this->numOfCast = numOfCast;
 	this->runTime = runTime;
 
+	this->cast = new Person[numOfCast];
 	for (int i = 0; i < numOfCast; i++) {
 		this->cast[i] = cast[i];
 	}
@@ -78,15 +82,13 @@ void Movie::setRunTime(int r) {
 // Overloaded functions
 std::ostream& operator<<(std::ostream& stream, const Movie& right) {
 	Person d;
-	stream << "The title of this movie is: " << right.title << endl << "The Director: "
-		<< d.getFirstName() << " " << d.getLastName() << endl << "DOB: "
-		<< d.getDateOfBirth() << endl << "The cast has " << right.numOfCast
-		<< " people apart of the cast:\n" << right.cast << endl;
+	stream << "The title of this movie is: " << right.title << endl << "The cast has " << right.numOfCast
+		<< " people apart of the cast:\n" << endl;
 
 
-	//for (int i = 0; right.numOfCast; i++) {
-	//stream << right.cast[i] << endl;
-	//}
+	for (int i = 0; i < right.numOfCast; i++) {
+	stream << right.cast[i].getFirstName() << " " << right.cast[i].getLastName() << endl;
+	}
 		
 	return stream;
 }
